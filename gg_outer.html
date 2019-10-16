@@ -25,24 +25,13 @@
             var search = location.search.substr(1),
                 cntid = getQueryString('cntid'),
                 bo = document.getElementsByTagName('body')[0],
-                // iframe = window.parent.document.getElementById(cntid),
+                size = getQueryString('size'),
                 number = 0,
                 time = null;
             if (!search) return;
-            // var xie = location.protocol + '//' + location.host;
             document.write('<iframe src="//mini.eastday.com/iframe/gg/gg_channel.html?' + search +
-                '" width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" ' +
+                '" width="100%" height="'+size.split(',')[1]+'" frameborder="no" border="0" marginwidth="0" marginheight="0" ' +
                 'scrolling="no" allowtransparency="yes" id="'+cntid+'"></iframe>');
-            // clearInterval(time);
-            // time = setInterval(function() {
-            //     number++
-            //     if (bo.offsetHeight > 30) {
-            //         clearInterval(time);
-            //         iframe.style.height = bo.offsetHeight + 'px';
-            //         iframe.parentNode.style.display = 'block';
-            //     }
-            //     if (number === 50) clearInterval(time);
-            // }, 200);
         })()
     </script>
 </body>
