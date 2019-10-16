@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit" />
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function getQueryString(name) {
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+
+        (function() {
+            var search = location.search.substr(1),
+                cntid = getQueryString('cntid'),
+                bo = document.getElementsByTagName('body')[0],
+                iframe = window.parent.document.getElementById(cntid),
+                number = 0,
+                time = null;
+            if (!search) return;
+            var xie = location.protocol + '//' + location.host;
+            document.write('<iframe src="'+xie+'/iframe/gg/gg_common.html?' + search +
+                '" width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" ' +
+                'scrolling="no" allowtransparency="yes" id="'+cntid+'"></iframe>');
+            // clearInterval(time);
+            // time = setInterval(function() {
+            //     number++
+            //     if (bo.offsetHeight > 30) {
+            //         clearInterval(time);
+            //         iframe.style.height = bo.offsetHeight + 'px';
+            //         iframe.parentNode.style.display = 'block';
+            //     }
+            //     if (number === 50) clearInterval(time);
+            // }, 200);
+        })()
+    </script>
+</body>
+
+</html>
